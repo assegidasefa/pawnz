@@ -37,7 +37,10 @@ interface MarketTableProps {
   isLoading: boolean;
 }
 
-const CoinAvatar: React.FC<{ symbol: string; name: string }> = ({ symbol, name }) => (
+const CoinAvatar: React.FC<{ symbol: string; name: string }> = ({
+  symbol,
+  name,
+}) => (
   <Image
     src={symbol}
     alt={name}
@@ -47,7 +50,10 @@ const CoinAvatar: React.FC<{ symbol: string; name: string }> = ({ symbol, name }
   />
 );
 
-const PriceChange: React.FC<{ price: string; change: string }> = ({ price, change }) => {
+const PriceChange: React.FC<{ price: string; change: string }> = ({
+  price,
+  change,
+}) => {
   const isNegative = change.startsWith("-");
   return (
     <div className="w-35 p-1 border rounded-md flex gap-x-2 bg-green-400/10">
@@ -61,19 +67,29 @@ const PriceChange: React.FC<{ price: string; change: string }> = ({ price, chang
 };
 
 const HighYieldBadge: React.FC = () => (
-  <Card className="text-[#CC5F62] py-0 px-1 shadow-none rounded-sm text-xs">High Yield</Card>
+  <Card className="text-[#CC5F62] py-0 px-1 shadow-none rounded-sm text-xs">
+    High Yield
+  </Card>
 );
 
 const OfferButton: React.FC<{ offerText: string }> = ({ offerText }) => (
   <BorrowModal>
     <Button className="flex cursor-pointer gap-x-2 w-auto bg-transparent hover:bg-transparent border-none shadow-none">
       <PlusCircleIcon />
-      {offerText}
+      {/* {offerText} */}
+      {capitalizeFirst(offerText)}
     </Button>
   </BorrowModal>
 );
 
-const MarketTable: React.FC<MarketTableProps> = ({ marketData, layout, isLoading }) => {
+const capitalizeFirst = (str: string) =>
+  str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+
+const MarketTable: React.FC<MarketTableProps> = ({
+  marketData,
+  layout,
+  isLoading,
+}) => {
   if (!marketData) return <div className="text-red-500">No data available</div>;
 
   return (
@@ -82,13 +98,27 @@ const MarketTable: React.FC<MarketTableProps> = ({ marketData, layout, isLoading
         <Table>
           <TableHeader>
             <TableRow className="text-[12px]">
-              <TableHead className="font-normal text-muted-foreground ml-8">COIN</TableHead>
-              <TableHead className="font-normal text-muted-foreground">PRICE</TableHead>
-              <TableHead className="font-normal text-muted-foreground">LISTING</TableHead>
-              <TableHead className="font-normal text-muted-foreground">USDC DEMAND</TableHead>
-              <TableHead className="font-normal text-muted-foreground">AVG LTV</TableHead>
-              <TableHead className="font-normal text-muted-foreground">TOP OFFER</TableHead>
-              <TableHead className="font-normal text-muted-foreground text-left pl-4">OFFER</TableHead>
+              <TableHead className="font-normal text-muted-foreground ml-8">
+                COIN
+              </TableHead>
+              <TableHead className="font-normal text-muted-foreground">
+                PRICE
+              </TableHead>
+              <TableHead className="font-normal text-muted-foreground">
+                LISTING
+              </TableHead>
+              <TableHead className="font-normal text-muted-foreground">
+                USDC DEMAND
+              </TableHead>
+              <TableHead className="font-normal text-muted-foreground">
+                AVG LTV
+              </TableHead>
+              <TableHead className="font-normal text-muted-foreground">
+                TOP OFFER
+              </TableHead>
+              <TableHead className="font-normal text-muted-foreground text-left pl-4">
+                OFFER
+              </TableHead>
             </TableRow>
           </TableHeader>
 
@@ -111,7 +141,9 @@ const MarketTable: React.FC<MarketTableProps> = ({ marketData, layout, isLoading
 
                   <TableCell>
                     <div className="flex items-center space-x-2">
-                      <Card className="py-[3px] px-1 rounded-sm">{item.listings}</Card>
+                      <Card className="py-[3px] px-1 rounded-sm">
+                        {item.listings}
+                      </Card>
                       <Avatar className="w-4 h-4">
                         <AvatarFallback className="w-4 h-4" />
                       </Avatar>
@@ -177,7 +209,13 @@ const MarketTable: React.FC<MarketTableProps> = ({ marketData, layout, isLoading
                 <span className="text-muted-foreground">Price</span>
                 <div className="px-2 py-0.5 rounded-md border bg-green-400/20 flex items-center gap-x-2">
                   <span>{item.price}</span>
-                  <span className={`text-sm font-medium ${item.change.startsWith("-") ? "text-red-500" : "text-green-600"}`}>
+                  <span
+                    className={`text-sm font-medium ${
+                      item.change.startsWith("-")
+                        ? "text-red-500"
+                        : "text-green-600"
+                    }`}
+                  >
                     {!item.change.startsWith("-") && "+"}
                     {item.change}
                   </span>
@@ -210,7 +248,9 @@ const MarketTable: React.FC<MarketTableProps> = ({ marketData, layout, isLoading
               <div className="flex justify-between items-center text-sm">
                 <span className="text-muted-foreground">Avg LTV</span>
                 <div className="flex items-center gap-x-2">
-                  <span className="text-[#CC5F62] font-medium">{item.avgLtv}</span>
+                  <span className="text-[#CC5F62] font-medium">
+                    {item.avgLtv}
+                  </span>
                   {item.isHighYield && (
                     <div className="px-1 py-0.5 rounded-sm border text-xs text-[#CC5F62]">
                       High Yield
@@ -232,9 +272,10 @@ const MarketTable: React.FC<MarketTableProps> = ({ marketData, layout, isLoading
 
               {/* Offer Button */}
               <BorrowModal>
-                <Button className="w-full text-sm mt-1 gap-x-2">
+                <Button className="w-full text-sm mt-1 gap-x-2 ">
                   <PlusCircleIcon className="w-4 h-4" />
-                  {item.offer}
+
+                  {capitalizeFirst(item.offer)}
                 </Button>
               </BorrowModal>
             </Card>

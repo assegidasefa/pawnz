@@ -28,7 +28,7 @@ const Auctions = () => {
                 All
               </TabsTrigger>
               <TabsTrigger
-                disabled={true}
+                // disabled={true}
                 value="live"
                 className="px-3 py-1.5 rounded-md"
               >

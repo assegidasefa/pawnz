@@ -4,6 +4,9 @@ import { Button } from "@/components/ui/button";
 import CollapseIcon from "@/components/icons/CollapseIcon";
 import AuctionRightSideTable from "./AuctionRightSideTable";
 import TableToolbar from "../Shared/TableToolbar";
+import ActivityIcon from "../icons/ActivityIcon";
+import FireIcon from "../icons/FireIcon";
+import AuctionIcon from "../icons/AuctionIcon";
 
 const AuctionCollapsibleContent = ({
   onCollapse,
@@ -45,12 +48,17 @@ const AuctionCollapsibleContent = ({
             <TabsList className="flex justify-between w-full">
               <div>
                 <TabsTrigger disabled value="activity">
+                  <ActivityIcon />
                   Activity
                 </TabsTrigger>
                 <TabsTrigger disabled value="listing">
+                  <FireIcon />
                   Listing
                 </TabsTrigger>
-                <TabsTrigger value="auction">Auction</TabsTrigger>
+                <TabsTrigger value="auction">
+                  <AuctionIcon />
+                  Auction
+                </TabsTrigger>
               </div>
               <div className="flex gap-x-2 items-center">
                 <TableToolbar

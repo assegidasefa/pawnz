@@ -30,11 +30,11 @@ const AllAuctions = () => {
         setAuctions([
           {
             name: "Ponke",
-            avatar: "https://api.dicebear.com/7.x/identicon/svg?seed=ponke",
+            avatar: "https://api.dicebear.com/7.x/identicon/png?seed=ponke",
             collateral: "345M",
-            collateralImage: "https://api.dicebear.com/7.x/identicon/svg?seed=usdc",
+            collateralImage: "https://api.dicebear.com/7.x/identicon/png?seed=usdc",
             latestBid: "12M",
-            bidImage: "https://api.dicebear.com/7.x/identicon/svg?seed=usdc",
+            bidImage: "https://api.dicebear.com/7.x/identicon/png?seed=usdc",
             timeLeft: "6hr 30min",
             winner: "mMEn6A",
           },

@@ -73,9 +73,21 @@ const AuctionSection = ({
     <Card key={idx} className="transition-colors !p-0">
       <CardContent className="p-4 flex flex-col space-y-2">
         <div className="flex items-center gap-2">
-          <Avatar className="w-12 h-12 border rounded-full overflow-hidden">
+          {/* <Avatar className="w-12 h-12 border rounded-full overflow-hidden">
             <Image src={item.avatar} alt={item.name} width={48} height={48} />
-          </Avatar>
+          </Avatar> */}
+              <div className="relative w-[36px] h-[36px] lg:w-[48px] lg:h-[48px]">
+              <Avatar className="w-[36px] h-[36px] lg:w-[48px] lg:h-[48px] ">
+                <AvatarImage src={item.avatar} alt={item.name} width={48} height={48} />
+              </Avatar>
+              <div className="absolute bottom-0 right-0 w-[18px] h-[18px] bg-card  p-[2px] shadow-md translate-x-1/4 translate-y-1/4">
+                <img
+                  src="/pawnzLogo.svg"
+                  alt="Toncoin"
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            </div>
           <div className="w-full space-y-1">
             <div className="font-medium">{item.name}</div>
             <CustomRow

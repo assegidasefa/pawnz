@@ -60,9 +60,19 @@ const LoanCard = ({
             </div>
           </div>
         </div>
-        <div className="relative w-full border rounded-lg overflow-hidden">
-          <Progress value={progress} className="h-4" indicatorClassName={"bg-[#D5FF40]"}  />
-          <span className="absolute inset-0 flex items-center justify-center text-xs text-muted-foreground font-medium">
+        <div className="relative w-full border rounded overflow-hidden">
+          <Progress
+            value={progress}
+            className="h-5 flex  items-center "
+            indicatorClassName={"bg-[#D5FF40]"}
+          />
+          {/* <span className={`absolute w-full left-${progress} inset-0 flex items-center  text-xs text-muted-foreground font-medium`}>
+            {progress}%
+          </span> */}
+          <span
+            className="absolute top-0 text-xs text-muted-foreground font-medium h-full flex items-center"
+            style={{ left: `${progress >9 ? progress-5 : progress}%`, transform: "translateX(-50%)" }}
+          >
             {progress}%
           </span>
         </div>

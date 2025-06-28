@@ -15,7 +15,7 @@ const NotificationPanelContent = () => {
             <h3 className="font-medium ">Loan Due Alert</h3>
             <div className="flex gap-x-[6px]">
               <Button className="flex items-center border p-0 h-5 px-1 rounded-sm bg-transparent hover:bg-transparent/70 ">
-                <div className="text-xs ">READ More</div>
+                <div className="text-xs uppercase">READ More</div>
               </Button>
               <Button className="flex items-center p-0 h-5 px-1 rounded-sm bg-transparent hover:bg-transparent/70 border">
                 <div className="text-xs  ">MARK AS READ</div>

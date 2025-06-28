@@ -8,7 +8,7 @@ import MarketTable from "./borrow/Table";
 
 const tokens = Array.from({ length: 20 }, (_, i) => ({
   name: `Ponke ${i + 1}`,
-  symbol: `https://api.dicebear.com/7.x/identicon/svg?seed=${i}`,
+  symbol: `https://api.dicebear.com/7.x/identicon/png?seed=${i}`,
   price: `${(Math.random() * 2).toFixed(2)} USD`,
   listings: `${Math.floor(Math.random() * 200)}`,
   change: `${(Math.random() * 10 - 5).toFixed(2)}%`,
@@ -23,6 +23,7 @@ const CreateOffer = () => {
   const [marketData, setMarketData] = useState<any[]>([]);
   const [marketLoading, setMarketLoading] = useState<boolean>(true);
   const [layout, setLayout] = useState<"grid" | "list">("list");
+  const [activeTab, setActiveTab] = useState("borrow");
 
   // Simulate initial loading
   useEffect(() => {
@@ -55,13 +56,17 @@ const CreateOffer = () => {
 
   return (
     <div>
-      <Tabs defaultValue="borrow" className="w-full py-4 px-6">
+      <Tabs
+        value={activeTab}
+        onValueChange={setActiveTab}
+        className="w-full py-4 px-6"
+      >
         <div className="flex justify-between">
           <TabsList className="h-auto space-x-2 w-full p-0">
             <TabsTrigger value="borrow" className=" px-2 py-0 h-8 ">
               Borrow
             </TabsTrigger>
-            <TabsTrigger disabled value="lend">
+            <TabsTrigger value="lend" className="px-2 py-0 h-8">
               Lend
             </TabsTrigger>
             <div className="flex justify-end w-full">
@@ -89,6 +94,13 @@ const CreateOffer = () => {
           />
         </TabsContent>
         <TabsContent value="lend" />
+        {/* <TabsContent value="lend">
+          <MarketTable
+            marketData={marketData}
+            layout={layout}
+            isLoading={marketLoading}
+          />
+        </TabsContent> */}
       </Tabs>
     </div>
   );

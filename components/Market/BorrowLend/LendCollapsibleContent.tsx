@@ -134,7 +134,7 @@ const LendCollapsibleContent = ({
                       Auction
                     </TabsTrigger>
                   </div>
-                  <div className="flex gap-x-1 items-center">
+                  <div className="flex gap-x-1 items-center mr-2">
                     <ToggleGroup
                       type="single"
                       defaultValue={layout}
@@ -151,17 +151,22 @@ const LendCollapsibleContent = ({
                       >
                         <GridIcon className="size-5" />
                       </ToggleGroupItem>
+                      
                       <ToggleGroupItem
                         value="list"
                         aria-label="List view"
                         onClick={() => setLayout("list")}
+                        className="border rounded-md"
+
                       >
                         <Grid2Icon className="size-5" />
                       </ToggleGroupItem>
                       <ToggleGroupItem
-                        value="list"
+                        // value="list"
+                        value="isFullscreen"
                         aria-label="List view"
                         onClick={() => setIsFullscreen((prev) => !prev)}
+                        className="border rounded-md"
                       >
                         <MaximizeIcon className="size-6" />
                       </ToggleGroupItem>
@@ -170,8 +175,8 @@ const LendCollapsibleContent = ({
                     {onCollapse && (
                       <Button
                         variant="outline"
-                        size="sm"
-                        className="ml-2 p-1"
+                        size="default"
+                        className=" p-2"
                         onClick={onCollapse}
                       >
                         <CollapseIcon />

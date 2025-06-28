@@ -40,7 +40,7 @@ export function NotificationPanel() {
         <SheetHeader className=" py-4 px-4">
           {/* Header */}
           <div className="flex items-center justify-between w-[90vw] md:w-full">
-            <SheetTitle className="text-lg font-medium">
+            <SheetTitle className="text-lg !p-[6px] font-medium">
               Notifications
             </SheetTitle>
             <div className="flex md:hidden items-center gap-2">
@@ -55,26 +55,26 @@ export function NotificationPanel() {
         </SheetHeader>
         <Tabs defaultValue="all" className="w-[90vw] md:w-full px-6 py-0 ">
           <div className="flex justify-between items-center ">
-            <TabsList className="flex w-[70vw] md:w-auto h-auto  md:gap-x-2 ">
+            <TabsList className="flex w-[70vw] !p-0 md:w-auto h-auto  md:gap-x-2 ">
               <TabsTrigger value="all" className="px-3 py-1.5 rounded-md">
                 All
               </TabsTrigger>
               <TabsTrigger
-                disabled
+                // disabled
                 value="loans"
                 className="px-3 py-1.5 rounded-md border"
               >
                 Loans
               </TabsTrigger>
               <TabsTrigger
-                disabled
+                // disabled
                 value="offers"
                 className="px-3 py-1.5 rounded-md"
               >
                 Offers
               </TabsTrigger>
               <TabsTrigger
-                disabled
+                // disabled
                 value="auctions"
                 className="px-3 py-1.5 rounded-md"
               >

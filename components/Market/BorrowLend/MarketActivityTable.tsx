@@ -19,7 +19,6 @@ const MarketAcitivityTable = ({
 }: {
   layout?: "grid" | "list";
 }) => {
-
   const tokens = [
     {
       name: "Ponke",
@@ -101,10 +100,8 @@ const MarketAcitivityTable = ({
       time: "30m ago",
       image: "/images/coins/cheemscoin.png",
     },
-
   ];
   const headers = ["COIN", "ACTIVITY", "ASK", "OFFER", "TIME"];
-
 
   return (
     <div className="w-full overflow-auto">
@@ -115,13 +112,11 @@ const MarketAcitivityTable = ({
               {headers.map((header, index) => (
                 <TableHead
                   key={index}
-                  className={
-                    cn(
-                      `font-medium border-b text-muted-foreground text-[12px] py-3`,
-                      index === headers.length - 1 ? "text-right" : "text-center",
-                      index === 0 ? "text-left" : "",
-                    )
-                  }
+                  className={cn(
+                    `font-medium border-b text-muted-foreground text-[12px] py-3`,
+                    index === headers.length - 1 ? "text-right" : "text-center",
+                    index === 0 ? "text-left" : ""
+                  )}
                 >
                   {header}
                 </TableHead>
@@ -132,20 +127,20 @@ const MarketAcitivityTable = ({
             {[...tokens, ...tokens].map((token, index) => {
               const activityColor =
                 token.activity === "Accepted"
-                  ? "text-[#059669]"
+                  ? "text-[#059669] "
                   : token.activity === "Pending"
-                    ? "text-[#CC5F62]"
-                    : token.activity === "Offer"
-                      ? "text-red-600"
-                      : token.activity === "Listed"
-                        ? "text-blue-500"
-                        : token.activity === "Won"
-                          ? "text-red-500"
-                          : token.activity === "Auction"
-                            ? "text-red-800"
-                            : token.activity === "Filled"
-                              ? "text-green"
-                              : "";
+                  ? "text-[#CC5F62]"
+                  : token.activity === "Offer"
+                  ? "text-red-600"
+                  : token.activity === "Listed"
+                  ? "text-blue-500"
+                  : token.activity === "Won"
+                  ? "text-red-500"
+                  : token.activity === "Auction"
+                  ? "text-red-800"
+                  : token.activity === "Filled"
+                  ? "text-green"
+                  : "";
 
               return (
                 <TableRow
@@ -154,7 +149,6 @@ const MarketAcitivityTable = ({
                 >
                   <TableCell className="px-0.5 py-1 rounded-l-lg">
                     <div className="flex items-center space-x-1">
-
                       <div className="w-8 h-8 rounded-sm overflow-hidden">
                         <Image
                           src={token.image}
@@ -173,7 +167,6 @@ const MarketAcitivityTable = ({
                   </TableCell>
 
                   <TableCell className="px-0.5 py-1">
-
                     <div className="flex items-center space-x-2">
                       <div className="flex gap-x-2 items-center">
                         {token.askImage && (
@@ -201,8 +194,7 @@ const MarketAcitivityTable = ({
                   </TableCell>
                 </TableRow>
               );
-            })
-            }
+            })}
           </TableBody>
         </Table>
       ) : (
@@ -213,18 +205,18 @@ const MarketAcitivityTable = ({
               token.activity === "Accepted"
                 ? "text-[#059669]"
                 : token.activity === "Pending"
-                  ? "text-[#CC5F62]"
-                  : token.activity === "Offer"
-                    ? "text-red-600"
-                    : token.activity === "Listed"
-                      ? "text-blue-500"
-                      : token.activity === "Won"
-                        ? "text-red-500"
-                        : token.activity === "Auction"
-                          ? "text-red-800"
-                          : token.activity === "Filled"
-                            ? "text-green"
-                            : "";
+                ? "text-[#CC5F62]"
+                : token.activity === "Offer"
+                ? "text-red-600"
+                : token.activity === "Listed"
+                ? "text-blue-500"
+                : token.activity === "Won"
+                ? "text-red-500"
+                : token.activity === "Auction"
+                ? "text-red-800"
+                : token.activity === "Filled"
+                ? "text-green"
+                : "";
 
             return (
               <Card
@@ -244,8 +236,9 @@ const MarketAcitivityTable = ({
                   <span className="font-medium">{token.name}</span>
                 </div>
                 <div className="flex justify-between items-center">
-
-                  <div className={`text-sm ${activityColor}`}>{token.activity}</div>
+                  <div className={`text-sm ${activityColor}`}>
+                    {token.activity}
+                  </div>
                   <div className="flex items-center gap-2">
                     {token.askImage && (
                       <div className="w-4 h-4 overflow-hidden rounded-full">
@@ -262,11 +255,10 @@ const MarketAcitivityTable = ({
                   </div>
                 </div>
                 <div className="flex justify-between items-center">
-
-                  <div className="flex justify-end">
-                    {token.offer}
+                  <div className="flex justify-end">{token.offer}</div>
+                  <div className="text-xs text-gray-500 text-right">
+                    {token.time}
                   </div>
-                  <div className="text-xs text-gray-500 text-right">{token.time}</div>
                 </div>
               </Card>
             );

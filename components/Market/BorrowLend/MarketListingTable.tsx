@@ -59,7 +59,7 @@ const MarketListingTable = ({
     {
       name: "Dogecoin",
       symbol: "DOGE",
-      activity: "Auction",
+      activity: "Pending",
       ask: "-",
       askImage: "",
 
@@ -156,7 +156,10 @@ const MarketListingTable = ({
               return (
                 <TableRow
                   key={index}
-                  className={`w-full rounded-lg overflow-hidden`}
+                  className={`w-full rounded-lg overflow-hidden
+                                        ${token.activity === "Accepted" ? "bg-[#059669]/10" : ""}
+                        ${token.activity === "Pending" ? "bg-[#CC5F62]/10" : ""}
+                    `}
                 >
                   <TableCell className="px-0.5 py-1 rounded-l-lg">
                     <div className="flex items-center space-x-1">
@@ -207,9 +210,9 @@ const MarketListingTable = ({
                         </Button>
                       </LendModal>
                     ) : (
-                      <Button className="flex cursor-pointer gap-x-2 w-auto bg-transparent hover:bg-transparent border-none shadow-none">
+                      <Button className={` ${token.activity === "Pending" ? "text-[#CC5F62]" : ""} flex cursor-pointer gap-x-2 w-auto bg-transparent hover:bg-transparent border-none shadow-none`}>
                         {token.activity === "Pending" ? (
-                          <XCircleIcon />
+                          <XCircleIcon color="#CC5F62"/>
                         ) : (
                           <PlusCircleIcon />
                         )}
