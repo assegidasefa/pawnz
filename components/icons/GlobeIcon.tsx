@@ -1,0 +1,48 @@
+import React from "react";
+
+const GlobeIcon = () => {
+  return (
+    <div>
+      <svg
+        width="17"
+        height="16"
+        viewBox="0 0 17 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.61332 14.6663C12.2952 14.6663 15.28 11.6816 15.28 7.99967C15.28 4.31778 12.2952 1.33301 8.61332 1.33301C4.93142 1.33301 1.94666 4.31778 1.94666 7.99967C1.94666 11.6816 4.93142 14.6663 8.61332 14.6663Z"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M5.9467 2H6.61337C5.31337 5.89333 5.31337 10.1067 6.61337 14H5.9467"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M10.6133 2C11.9133 5.89333 11.9133 10.1067 10.6133 14"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M2.61334 10.6667V10C6.50668 11.3 10.72 11.3 14.6133 10V10.6667"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+        <path
+          d="M2.61334 6.00039C6.50668 4.70039 10.72 4.70039 14.6133 6.00039"
+          stroke="currentColor"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </svg>
+    </div>
+  );
+};
+
+export default GlobeIcon;
